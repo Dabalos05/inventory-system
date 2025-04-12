@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .loading-message {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        .error-message {
+          text-align: center;
+          padding: 20px;
+          color: red;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #343a40; /* Darker background */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid #333;
+        }
+
+        .navbar-brand {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: #636b6f;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.php">Notifications</a>
+        <a href="index.php" class="btn-secondary">Back to Dashboard</a>
+    </nav>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Current Stock</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="notificationTable">
+            <tr>
+                <td colspan="4" class="loading-message">Loading notifications...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("notifications.php")
+                .then(response => response.json())
+                .then(data => {
+                    let tableBody = document.getElementById("notificationTable");
+                    tableBody.innerHTML = "";
+
+                    if (data.notifications.length === 0) {
+                        tableBody.innerHTML = `<tr class="error-message"><td colspan="4">No notifications available.</td></tr>`;
+                    } else {
+                        data.notifications.forEach(notif => {
+                            if(notif.product_id){
+                                let row = `
+                                    <tr>
+                                        <td>${notif.product_id || '-'}</td>
+                                        <td>${notif.product_name || '-'}</td>
+                                        <td>${notif.current_stock || '-'}</td>
+                                        <td><button onclick="location.href='edit_product.php?id=${notif.product_id}'">Restock</button></td>
+                                    </tr>
+                                `;
+                                tableBody.innerHTML += row;
+                            }
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching notifications:", error);
+                    document.getElementById("notificationTable").innerHTML = `<tr class="error-message"><td colspan="4">Error loading notifications.</td></tr>`;
+                });
+        });
+    </script>
+</body>
+</html>

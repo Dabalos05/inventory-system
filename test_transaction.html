@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Transaction</title>
+</head>
+<body>
+
+<form action="record_transaction.php" method="post">
+    <label for="product_id">Product ID:</label>
+    <input type="number" name="product_id" id="product_id" required><br><br>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" id="quantity" required><br><br>
+
+    <label for="transaction_type">Transaction Type:</label>
+    <select name="transaction_type" id="transaction_type" required>
+        <option value="Sale">Sale</option>
+        <option value="Purchase">Purchase</option>
+        <option value="Adjustment">Adjustment</option>
+    </select><br><br>
+
+    <input type="submit" value="Record Transaction">
+</form>
+
+</body>
+</html>

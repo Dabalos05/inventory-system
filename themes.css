@@ -1,0 +1,36 @@
+/* themes.css */
+
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --navbar-bg: #e9ecef;
+    --navbar-text: #333;
+    --nav-bg: #f8f9fa;
+    --nav-border: #dee2e6;
+}
+
+body[data-theme="dark"] {
+    --bg-color: #343a40;
+    --text-color: #f8f9fa;
+    --navbar-bg: #212529;
+    --navbar-text: #f8f9fa;
+    --nav-bg: #212529;
+    --nav-border: #6c757d;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.navbar {
+    background-color: var(--navbar-bg);
+    color: var(--navbar-text);
+}
+
+.settings-nav {
+    background-color: var(--nav-bg);
+    border-right: 1px solid var(--nav-border);
+}
+
+/* Add more styles for other elements using custom properties */

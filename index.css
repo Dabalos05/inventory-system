@@ -1,0 +1,306 @@
+/*for phone size*/
+@media (max-width: 768px) { /* Styles for screens 768px wide or smaller (typical for tablets) */
+    /* Your CSS rules for tablet view */
+}
+
+@media (max-width: 576px) { /* Styles for screens 576px wide or smaller (typical for phones) */
+    /* Your CSS rules for phone view */
+}
+
+@media (min-width: 992px) { /* Styles for screens 992px wide or larger (typical for desktops) */
+    /* Your CSS rules for larger desktops */
+}
+
+
+/* GENERAL */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #111827;
+    color: #ffffff !important;
+    line-height: 1.6;
+    transition: background-color 0.3s ease;
+}
+
+/* SIDEBAR */
+#sidebar {
+    width: 60px;
+    background: linear-gradient(135deg, #1F2937, #111827);
+    color: #ffffff;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 15px;
+    overflow: hidden;
+    transition: width 0.3s ease, background 0.3s ease;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar:hover {
+    width: 220px;
+    background: linear-gradient(135deg, #374151, #1F2937);
+}
+
+/* SIDEBAR LINKS */
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#sidebar ul li {
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+#sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#sidebar ul li i {
+    font-size: 20px;
+    text-align: center;
+    margin-right: 10px;
+    width: 25px;
+}
+
+#sidebar ul li span {
+    display: none;
+}
+
+#sidebar:hover ul li span {
+    display: inline;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 60px;
+    transition: margin-left 0.3s ease;
+    color: #ffffff !important;
+}
+
+#sidebar:hover + .main-content {
+    margin-left: 220px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffffff !important;
+}
+
+/* DASHBOARD CARDS */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.card {
+    background: #1F2937;
+    border-left: 5px solid #6366F1;
+    color: #ffffff !important;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff !important;
+    display: flex;
+    align-items: center;
+}
+
+.card h3 i {
+    margin-right: 10px;
+    font-size: 1.3rem;
+    color: #ffffff !important;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: #ffffff !important;
+    margin: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* TABLE STYLES */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1E293B;
+    color: #ffffff !important;
+    border-left: 5px solid #6366F1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #374151;
+    color: #ffffff !important;
+}
+
+th {
+    background: #6366F1;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* BUTTONS */
+button {
+    background-color: #6366F1;
+    color: #ffffff !important;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #4F46E5;
+    transform: translateY(-2px);
+}
+
+/* FORM INPUTS */
+input, select, textarea {
+    background: #1E293B;
+    color: #ffffff !important;
+    border: 1px solid #6366F1;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #6366F1;
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+}
+
+/* PROFILE DROPDOWN */
+.profile-item {
+    position: relative;
+    width: 100%;
+}
+
+.profile-toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.profile-toggle:hover {
+    background-color: #1F2937;
+}
+
+.dropdown-arrow {
+    margin-left: auto;
+}
+
+.profile-dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: none;
+    background: linear-gradient(135deg, #1F2937, #111827);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-dropdown li a {
+    display: block;
+    padding: 10px 15px;
+    padding-left: 30px;
+    text-decoration: none;
+    color: #ffffff !important;
+    transition: background-color 0.3s ease;
+}
+
+.profile-dropdown li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-item:hover > .profile-dropdown {
+    display: block;
+}
+
+/*sa badge number ng notification*/
+/* Notification Badge (Always Visible) */
+.notification-icon .notification-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 4px;
+    font-size: 8px;
+    position: absolute;
+    top: -5px;
+    right: 2px;
+    display: inline-block !important; /* Force it to be visible */
+}
+
+/* Notification Icon */
+.notification-icon {
+    position: relative;
+    display: inline-block;
+}
+
+/*blinking card ni out of stock haha*/
+.blink-out-of-stock {
+    animation: blinker 1s linear infinite alternate; /* Adjust timing and style as needed */
+}
+
+@keyframes blinker {
+    from { background-color: #1F2937; /* Original background color */ }
+    to { background-color: #ff4d4d; /* A brighter or different red */ }
+}

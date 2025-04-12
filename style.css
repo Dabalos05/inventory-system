@@ -1,0 +1,157 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #343a40;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.sidebar ul li:hover {
+    background-color: #495057;
+    border-radius: 5px;
+}
+
+.blue { background-color: #007bff; }
+.yellow { background-color: #ffc107; }
+.red { background-color: #dc3545; }
+.green { background-color: #28a745; }
+.cyan { background-color: #17a2b8; }
+.gray { background-color: #6c757d; }
+.black { background-color: #343a40; }
+.orange { background-color: #fd7e14; }
+
+/* CSS to ng Login.php */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.login-container {
+    display: flex;
+    width: 800px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-form {
+    flex: 1;
+    padding: 40px;
+    text-align: center;
+}
+
+.login-welcome {
+    background-image: url('background.jpg'); /* Tamang spelling */
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-form button {
+    background-image: url('background.jpg'); /* Add background image */
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat; /* Adjust as needed */
+    background-position: center; /* Adjust as needed */
+    color: white; /* Adjust text color to ensure visibility */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-form button:hover {
+    /* You can adjust hover styles as needed */
+    opacity: 0.8; /* Example hover effect */
+}
+
+.login-form p {
+    margin-top: 20px;
+}
+
+.login-welcome h2 {
+    margin-bottom: 10px;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-container i {
+    position: absolute;
+    left: 15px; /* Adjust the left position to move the icon inside */
+    top: 35%;
+    transform: translateY(-50%);
+    color: #090909;
+    pointer-events: none; /* Prevent icons from interfering with input clicks */
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px 40px; /* Adjust padding to accommodate the icon */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
